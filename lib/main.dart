@@ -52,7 +52,7 @@ class MyApp extends StatelessWidget {
       routerConfig: appRouter,
       debugShowCheckedModeBanner: false,
       restorationScopeId: 'app',
-      onGenerateTitle: (BuildContext context) => 'Flutter HB Salesforce',
+      onGenerateTitle: (BuildContext context) => 'HB Salesforce',
       theme: ThemeData(
         // Use this to toggle Material 3 (defaults to true since Flutter 3.16)
         useMaterial3: true,

@@ -17,6 +17,26 @@ dev_dependencies:
   flutter_lints: ^5.0.0
   flutter_test:
     sdk: flutter
+  flutter_launcher_icons: ^0.14.4
 
 flutter:
   uses-material-design: true
+  assets:
+    - assets/
+
+# Custom app icon. For more info see: https://pub.dev/packages/flutter_launcher_icons
+flutter_launcher_icons:
+  ios: true
+  android: true
+  remove_alpha_ios: true
+  image_path_ios: "assets/hb-logo.png"
+  image_path_android: "assets/hb-logo.png"
+  # https://github.com/fluttercommunity/flutter_launcher_icons/issues/144
+  adaptive_icon_background: "#ffffff"
+  adaptive_icon_foreground: "assets/hb-logo-transparent.png"
+  macos:
+    generate: true
+    image_path: "assets/hb-logo-transparent.png"
+  web:
+    generate: true
+    image_path: "assets/hb-logo-transparent.png"

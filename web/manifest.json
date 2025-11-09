@@ -1,6 +1,6 @@
 {
-    "name": "flutter_hb_salesforce",
-    "short_name": "flutter_hb_salesforce",
+    "name": "HB Salesforce",
+    "short_name": "HB Salesforce",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
