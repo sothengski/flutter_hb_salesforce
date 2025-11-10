@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hb_salesforce/router/app_router.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 // ignore: depend_on_referenced_packages
 import 'package:flutter_web_plugins/url_strategy.dart';
 
@@ -15,7 +16,7 @@ void main() async {
   registerErrorHandlers();
 
   // Entry point of the app
-  runApp(const MyApp());
+  runApp(const ProviderScope(child: MyApp()));
 }
 
 void registerErrorHandlers() {
