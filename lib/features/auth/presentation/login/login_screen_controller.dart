@@ -1,0 +1,44 @@
+import 'package:flutter_hb_salesforce/features/auth/auth.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_riverpod/legacy.dart';
+
+class LoginScreenController extends StateNotifier<EmailPasswordSignInState> {
+  LoginScreenController({
+    required EmailPasswordSignInFormType formType,
+    required this.authRepository,
+  }) : super(EmailPasswordSignInState(formType: formType));
+  final AuthRepository authRepository;
+
+  Future<bool> submit(String email, String password) async {
+    state = state.copyWith(value: const AsyncValue.loading());
+    final value = await AsyncValue.guard(() => _authenticate(email, password));
+    state = state.copyWith(value: value);
+    return value.hasError == false;
+  }
+
+  Future<void> _authenticate(String email, String password) {
+    switch (state.formType) {
+      case EmailPasswordSignInFormType.signIn:
+        return authRepository.signInWithEmailAndPassword(email, password);
+      case EmailPasswordSignInFormType.register:
+        return authRepository.createUserWithEmailAndPassword(email, password);
+    }
+  }
+
+  void updateFormType(EmailPasswordSignInFormType formType) {
+    state = state.copyWith(formType: formType);
+  }
+}
+
+final emailPasswordSignInControllerProvider = StateNotifierProvider.autoDispose
+    .family<
+      LoginScreenController,
+      EmailPasswordSignInState,
+      EmailPasswordSignInFormType
+    >((ref, formType) {
+      final authRepository = ref.watch(authRepositoryProvider);
+      return LoginScreenController(
+        authRepository: authRepository,
+        formType: formType,
+      );
+    });

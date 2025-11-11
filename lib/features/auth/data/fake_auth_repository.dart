@@ -35,6 +35,8 @@ class FakeAuthRepository implements AuthRepository {
   @override
   Future<void> signInWithEmailAndPassword(String email, String password) async {
     await delay(addDelay);
+    // throw Exception('Connection failed');
+    _createNewUser(email);
   }
 
   @override

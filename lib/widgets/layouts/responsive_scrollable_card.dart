@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hb_salesforce/constants/constants.dart';
-import 'package:flutter_hb_salesforce/layouts/responsive_center.dart';
+import 'package:flutter_hb_salesforce/widgets/layouts/responsive_center.dart';
 
 /// A scrollable, responsive card with padding and max width.
 /// Ideal for login, register, settings, forms, etc.
