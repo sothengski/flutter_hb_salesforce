@@ -5,3 +5,6 @@ export 'dialogs/alert_dialogs.dart';
 export 'states/async_value_widget.dart';
 export 'texts/error_message_widget.dart';
 export 'layouts/layouts.dart';
+export 'layouts/custom_image.dart';
+export 'layouts/item_quantity_selector.dart';
+export 'layouts/decorated_box_with_shadow.dart';
