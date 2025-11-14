@@ -2,7 +2,7 @@ import 'package:flutter_hb_salesforce/features/auth/auth.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_riverpod/legacy.dart';
 
-class AccountScreenController extends StateNotifier<AsyncValue> {
+class AccountScreenController extends StateNotifier<AsyncValue<void>> {
   AccountScreenController({required this.authRepository})
     : super(const AsyncData(null));
   final AuthRepository authRepository;
