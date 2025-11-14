@@ -14,6 +14,7 @@ enum AppRoute {
   orders,
   cart,
   checkout,
+  leaveReview,
 }
 
 final goRouterProvider = Provider<GoRouter>((ref) {

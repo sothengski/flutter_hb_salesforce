@@ -19,24 +19,28 @@ class AccountScreen extends ConsumerWidget {
       appBar: AppBar(
         title: const Text('Account'),
         actions: [
-          ActionTextButton(
-            text: 'Logout',
-            onPressed: state.isLoading
-                ? null
-                : () async {
-                    final logout = await showAlertDialog(
-                      context: context,
-                      title: 'Are you sure?',
-                      cancelActionText: 'Cancel',
-                      defaultActionText: 'Logout',
-                    );
-                    if (logout == true) {
-                      await ref
-                          .read(accountScreenControllerProvider.notifier)
-                          .signOut();
-                    }
-                  },
-          ),
+          if (state.isLoading)
+            const Padding(
+              padding: EdgeInsets.all(16.0),
+              child: CircularProgressIndicator(),
+            )
+          else
+            ActionTextButton(
+              text: 'Logout',
+              onPressed: () async {
+                final logout = await showAlertDialog(
+                  context: context,
+                  title: 'Are you sure?',
+                  cancelActionText: 'Cancel',
+                  defaultActionText: 'Logout',
+                );
+                if (logout == true) {
+                  await ref
+                      .read(accountScreenControllerProvider.notifier)
+                      .signOut();
+                }
+              },
+            ),
         ],
       ),
 

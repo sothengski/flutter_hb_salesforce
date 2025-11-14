@@ -70,10 +70,10 @@ class ProductDetails extends ConsumerWidget {
               gapH8,
               Text(product.description),
               // Only show average if there is at least one rating
-              // if (product.numRatings >= 1) ...[
-              //   gapH8,
-              //   ProductAverageRating(product: product),
-              // ],
+              if (product.numRatings >= 1) ...[
+                gapH8,
+                ProductAverageRating(product: product),
+              ],
               gapH8,
               const Divider(),
               gapH8,

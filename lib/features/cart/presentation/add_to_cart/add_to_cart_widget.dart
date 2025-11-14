@@ -31,6 +31,7 @@ class AddToCartWidget extends ConsumerWidget {
             Text('Quantity:'),
             ItemQuantitySelector(
               quantity: state.value!,
+              // quantity: state.value ?? 1,
               // let the user choose up to the available quantity or
               // 10 items at most
               maxQuantity: min(availableQuantity, 10),

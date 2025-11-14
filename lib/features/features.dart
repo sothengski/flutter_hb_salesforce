@@ -4,3 +4,4 @@ export 'order/order_features.dart';
 export 'product/product_features.dart';
 export 'cart/cart_features.dart';
 export 'checkout/checkout_features.dart';
+export 'reviews/reviews_features.dart';

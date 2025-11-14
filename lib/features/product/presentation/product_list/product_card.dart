@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hb_salesforce/constants/constants.dart';
-import 'package:flutter_hb_salesforce/features/product/product_features.dart';
+import 'package:flutter_hb_salesforce/features/features.dart';
 import 'package:flutter_hb_salesforce/utils/currency_formatter.dart';
 import 'package:flutter_hb_salesforce/widgets/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -38,7 +38,7 @@ class ProductCard extends ConsumerWidget {
               ),
               if (product.numRatings >= 1) ...[
                 gapH8,
-                // ProductAverageRating(product: product),
+                ProductAverageRating(product: product),
               ],
               gapH24,
               Text(

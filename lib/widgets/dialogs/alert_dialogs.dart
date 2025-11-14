@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
 const kDialogDefaultKey = Key('dialog-default-key');
 
@@ -31,12 +30,12 @@ Future<bool?> showAlertDialog({
               if (cancelActionText != null)
                 TextButton(
                   child: Text(cancelActionText),
-                  onPressed: () => context.pop(false),
+                  onPressed: () => Navigator.of(context).pop(false),
                 ),
               TextButton(
                 key: kDialogDefaultKey,
                 child: Text(defaultActionText),
-                onPressed: () => context.pop(true),
+                onPressed: () => Navigator.of(context).pop(true),
               ),
             ]
           : <Widget>[
