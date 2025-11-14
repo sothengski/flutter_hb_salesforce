@@ -7,12 +7,14 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'features/auth/auth_robot.dart';
+import 'goldens/golden_robot.dart';
 
 class Robot {
-  Robot(this.tester) : auth = AuthRobot(tester);
+  Robot(this.tester) : auth = AuthRobot(tester), golden = GoldenRobot(tester);
 
   final WidgetTester tester;
   final AuthRobot auth;
+  final GoldenRobot golden;
 
   Future<void> pumpMyApp() async {
     // Override repositories
@@ -42,16 +44,21 @@ class Robot {
     // else no-op, as the items are already visible
   }
 
-  Future<void> expectFindAllProductCards() async {
-    // Wait for ProductCards to appear (products load asynchronously)
-    await tester.pumpAndSettle();
-    // Wait for products to load by pumping until ProductCards appear
+  void expectFindAllProductCards() {
     final finder = find.byType(ProductCard);
-    var attempts = 0;
-    while (finder.evaluate().isEmpty && attempts < 50) {
-      await tester.pump(const Duration(milliseconds: 100));
-      attempts++;
-    }
     expect(finder, findsNWidgets(kTestProducts.length));
   }
+
+  // Future<void> expectFindAllProductCards() async {
+  //   // Wait for ProductCards to appear (products load asynchronously)
+  //   await tester.pumpAndSettle();
+  //   // Wait for products to load by pumping until ProductCards appear
+  //   final finder = find.byType(ProductCard);
+  //   var attempts = 0;
+  //   while (finder.evaluate().isEmpty && attempts < 50) {
+  //     await tester.pump(const Duration(milliseconds: 100));
+  //     attempts++;
+  //   }
+  //   expect(finder, findsNWidgets(kTestProducts.length));
+  // }
 }

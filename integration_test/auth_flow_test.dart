@@ -12,7 +12,7 @@ void main() {
     // await r.openPopupMenu();
     // await r.auth.openEmailPasswordSignInScreen();
     await r.auth.signInWithEmailAndPassword();
-    await r.expectFindAllProductCards();
+    r.expectFindAllProductCards();
     await r.openPopupMenu();
     await r.auth.openAccountScreen();
     await r.auth.tapLogoutButton();
